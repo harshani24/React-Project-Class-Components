@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
+const userRouter = require('./routes/user.route');
+const exerciseRouter = require('./routes/exercise.route');
 
 //1.create the server
 const app = express();
@@ -13,6 +15,11 @@ const port = process.env.PORT || 5000;
 //2.Middleware
 app.use(cors());
 app.use(express.json());
+
+//-----------4.mention our created routes
+app.use('/user', userRouter);
+app.use('/exercise' , exerciseRouter);
+
 
 
 
